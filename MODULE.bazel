@@ -1,0 +1,19 @@
+"""rules_brainfuck - Bazel rules for Brainfuck"""
+
+module(
+    name = "rules_brainfuck",
+    version = "0.0.1",
+)
+
+bazel_dep(name = "rules_cc", version = "0.1.1")
+bazel_dep(name = "platforms", version = "0.0.11")
+
+http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "brainfuck",
+    url = "https://github.com/fabianishere/brainfuck/archive/refs/heads/master.zip",
+    strip_prefix = "brainfuck-master",
+    build_file = "//:external/brainfuck.BUILD",
+    integrity = "sha256-jntTDT0dNHuKAXA+e9bttOimwyyAsy//WO59SYMYyKc=",
+)

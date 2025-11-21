@@ -1,0 +1,13 @@
+# Basic configuration for rules_brainfuck
+build --enable_platform_specific_config
+build --incompatible_enable_cc_toolchain_resolution
+
+# Enable C++17 standard
+build --cxxopt=-std=c++17
+build --host_cxxopt=-std=c++17
+
+# Optimize for local builds
+build:opt --compilation_mode=opt
+
+# Show test output
+test --test_output=errors
